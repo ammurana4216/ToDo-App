@@ -3,7 +3,7 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faUser as userRegular } from '@fortawesome/free-regular-svg-icons';
 // import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import CreateTask from './pages/CreateTask';
@@ -18,6 +18,7 @@ function App() {
     <BrowserRouter>
     <Navigation/> 
     <Routes>
+      <Route path='/' element ={<Navigate to='/login'/> }></Route>
       <Route path='/' element={<Home/>}>
         <Route path='/login'element={<Login/>}> </Route>
         <Route path='/register'element={<Register/>}> </Route>

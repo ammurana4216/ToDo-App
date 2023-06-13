@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function Login(props) {
     const [formData, setFormData]= useState();
-
+    const [message,setMessage]=useState("");
     const handleChange =(e)=>{
         // console.log(e);
         let { name , value } = e.target;
@@ -14,24 +14,44 @@ function Login(props) {
             [name] : value 
         }))
     }
+        const submitForm=async(e)=>{
+            e.preventDefault();
+        const response = await fetch(`http://localhost:5000/users?email=${formData.email}&password=${formData.password}`,{method:"GET"});
+        const user = await response.json();
+        console.log(user);
+        if(response.ok){
+            if(user.length>0){
+                setMessage("Logged in successfully");
+            }else{
+                setMessage("User not found");
+            }
+        }
+        else{
+            setMessage("Something went wrong! Please try again");
+        }
+            
+    
+    }
+
     return (
         <div>
              <form>
+                <p style ={{color: "red"}}>{message}</p>
         <div className="mb-3">
             <label htmlFor="">Email</label>
-            <input type="email" name='name' className='form-control' onChange={handleChange} />
+            <input type="email" name='email' className='form-control' onChange={handleChange} />
         </div>
         <div className='mb-3'>
             <label htmlFor="">Password</label>
-            <input type ="password" name='name' className='form-control' onChange={handleChange} />
+            <input type ="password" name='password' className='form-control' onChange={handleChange} />
             
              </div>
              <br/>
-             <button className='btn btn-primary'>Login</button>
+             <button className='btn btn-primary' onClick={submitForm}>Login</button>
              <br/>
              <br/>
              <h6>
-                <p>Forgot Username/Password ? <Link to=''>Click here to reset.</Link></p> 
+                <p style={{color: "Red"}}>Forgot Username/Password ? <Link to=''>Click here to reset.</Link></p> 
              </h6>
        </form>
         </div>

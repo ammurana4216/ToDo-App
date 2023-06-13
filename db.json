@@ -1,4 +1,17 @@
 {
-    "users":[],
-    "tasks":[]
+  "users": [
+    {
+      "name": "Ambeshwar",
+      "email": "ammurana@gmail.com",
+      "password": "admin",
+      "id": 1
+    },
+    {
+      "name": "Raveena",
+      "email": "raveena.katal@gmail.com",
+      "password": "raveena",
+      "id": 2
+    }
+  ],
+  "tasks": []
 }
