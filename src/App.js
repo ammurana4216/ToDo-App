@@ -13,6 +13,7 @@ import PageNotFound from './pages/PageNotFound';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
 import Register from './components/Register'
+
 function App() {  
   return (
     <BrowserRouter>

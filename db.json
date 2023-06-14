@@ -11,6 +11,12 @@
       "email": "raveena.katal@gmail.com",
       "password": "raveena",
       "id": 2
+    },
+    {
+      "name": "Raveena Katal",
+      "email": "raveen.katal@gmai.com",
+      "password": "admin321",
+      "id": 3
     }
   ],
   "tasks": []

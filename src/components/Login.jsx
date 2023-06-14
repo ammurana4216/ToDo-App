@@ -25,13 +25,11 @@ function Login(props) {
             }else{
                 setMessage("User not found");
             }
-        }
+          }
         else{
             setMessage("Something went wrong! Please try again");
+          }
         }
-            
-    
-    }
 
     return (
         <div>
