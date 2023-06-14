@@ -3,7 +3,7 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faUser as userRegular } from '@fortawesome/free-regular-svg-icons';
 // import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes,  } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import CreateTask from './pages/CreateTask';
@@ -28,7 +28,8 @@ function App() {
       <Route path='/create-task' element={<CreateTask/>}></Route>
       <Route path='/task-list' element={<TaskList/>}></Route>
       <Route path='/Profile' element={<Profile/>}></Route>
-      <Route path='*' element={<PageNotFound/>}></Route>
+      <Route path='*' element={<PageNotFound/>}>
+      </Route>
     </Routes>
     </BrowserRouter>
   );

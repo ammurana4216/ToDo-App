@@ -15,13 +15,17 @@ function Login(props) {
         }))
     }
         const submitForm=async(e)=>{
-            e.preventDefault();
+        e.preventDefault();
         const response = await fetch(`http://localhost:5000/users?email=${formData.email}&password=${formData.password}`,{method:"GET"});
         const user = await response.json();
         console.log(user);
         if(response.ok){
             if(user.length>0){
                 setMessage("Logged in successfully");
+                  console.log(user[0]);
+                  const userData = JSON.stringify(user[0]);
+                  localStorage.setItem("user", userData );
+
             }else{
                 setMessage("User not found");
             }
@@ -36,12 +40,12 @@ function Login(props) {
              <form>
                 <p style ={{color: "red"}}>{message}</p>
         <div className="mb-3">
-            <label htmlFor="">Email</label>
-            <input type="email" name='email' className='form-control' onChange={handleChange} />
+            <label htmlFor="email">Email</label>
+            <input type="email" name='email' id="email" className='form-control' onChange={handleChange} />
         </div>
         <div className='mb-3'>
-            <label htmlFor="">Password</label>
-            <input type ="password" name='password' className='form-control' onChange={handleChange} />
+            <label htmlFor="password">Password</label>
+            <input type ="password" name='password' id="password" className='form-control' onChange={handleChange} showAndHidePassword />
             
              </div>
              <br/>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register(props) {
   const [formData, setFormData]= useState();
@@ -13,6 +13,7 @@ function Register(props) {
       }))
   }
 
+  const navigate = useNavigate();
   const submitForm=async(e)=>{
     e.preventDefault();
 
@@ -29,16 +30,20 @@ function Register(props) {
 
   const checkUser = await fetch (`http://localhost:5000/users?email=${formData.email}`, {method:"GET"})
   if(checkUser.ok){
+    
     const user = await checkUser.json();
     if(user.length >0){
       setMessage("User aleardy exists");
+      const userData = JSON.stringify(user[0]);
+      localStorage.setItem("user", userData);
       }else{const response = await fetch('http://localhost:5000/users', options);
+      console.log(response);
       if(response.ok){
-        setMessage("Registered Successfully");
+       setMessage("Registered Successfully");
+       navigate("/task-list");
       }else{
         setMessage("Something went wrong, please try again");
-      }
-
+        }
       } 
   }
 }
@@ -55,17 +60,17 @@ function Register(props) {
       </div>
 
       <div className="mb-3">
-        <label className="form-label">
+        <label className="form-label" htmlFor="email">
           Email
         </label>
-        <input type="email" name="email" className="form-control" onChange={handleChange}/>
+        <input type="email" name="email" id="email" className="form-control" onChange={handleChange}/>
       </div>
 
       <div className="mb-3">
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="password">
           Password
         </label>
-        <input type="password" name="password" className="form-control" onChange={handleChange}/>
+        <input type="password" name="password" id="password" className="form-control" onChange={handleChange} />
       </div>
       
       <button className="btn btn-primary" onClick={submitForm}>Register</button>   

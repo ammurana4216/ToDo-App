@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import logo from '../images/logo.png';
+
 
 function Navigation(props) {
+    
+    //useEffect(); new hook to get data and load form local storage
+const [user, setUser] = useState (null);
+    useEffect(()=>{
+
+      const localUser = localStorage.getItem("user");
+      const user = JSON.parse(localUser);
+      setUser(user);
+    },[])
+    
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">Navbar</Link>
+          <Link className="navbar-brand" to="/"><img src={logo} alt="" /></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
