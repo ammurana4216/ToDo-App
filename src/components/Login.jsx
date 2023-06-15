@@ -5,11 +5,11 @@ import { useState , } from 'react';
 
 function Login(props) {
     const [formData, setFormData]= useState();
-    const [message,setMessage]=useState("");
+    const [message,setMessage]= useState("");
     const navigate = useNavigate(); 
 
     const handleChange =(e)=>{
-        // console.log(e);
+        console.log(e);
         let { name , value } = e.target;
         setFormData((prev)=>({
             ...prev,
