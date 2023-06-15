@@ -36,7 +36,7 @@ const [user, setUser] = useState (null);
                 <NavLink className="nav-link" to="/task-list">Task List</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/profile">Profile</NavLink>
+                <NavLink className="nav-link" to="/profile">{user?.name}</NavLink>
               </li>
             </ul>          
           </div>

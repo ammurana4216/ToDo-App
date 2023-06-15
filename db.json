@@ -29,6 +29,36 @@
       "email": "iphone@gmail.com",
       "password": "iphone",
       "id": 5
+    },
+    {
+      "name": "ranaammu",
+      "email": "ranaammu@gmail.com",
+      "password": "admin@13",
+      "id": 6
+    },
+    {
+      "name": "dadadad",
+      "email": "dadadad@gmail.com",
+      "password": "admin",
+      "id": 7
+    },
+    {
+      "name": "ammurana321",
+      "email": "ammurana@gmial.com",
+      "password": "admin",
+      "id": 8
+    },
+    {
+      "name": "falana",
+      "email": "falana@gmail.com",
+      "password": "admin",
+      "id": 9
+    },
+    {
+      "name": "ravan",
+      "email": "ravan@gmail.com",
+      "password": "ravan",
+      "id": 10
     }
   ],
   "tasks": []

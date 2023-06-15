@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link , useNavigate} from 'react-router-dom';
+import { useState , } from 'react';
 
 
 function Login(props) {
     const [formData, setFormData]= useState();
     const [message,setMessage]=useState("");
+    const navigate = useNavigate(); 
+
     const handleChange =(e)=>{
         // console.log(e);
         let { name , value } = e.target;
@@ -25,7 +27,9 @@ function Login(props) {
                   console.log(user[0]);
                   const userData = JSON.stringify(user[0]);
                   localStorage.setItem("user", userData );
-
+                  setTimeout(()=>{
+        navigate("/task-list");
+       }, 3000);
             }else{
                 setMessage("User not found");
             }

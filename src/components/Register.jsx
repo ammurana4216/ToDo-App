@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Register(props) {
   const [formData, setFormData]= useState();
   const [message, setMessage] = useState("");
-
+  const navigate = useNavigate();
   const handleChange=(e)=>{
       let { name, value } = e.target;
       setFormData((prev)=>({
@@ -13,7 +13,7 @@ function Register(props) {
       }))
   }
 
-  const navigate = useNavigate();
+  
   const submitForm=async(e)=>{
     e.preventDefault();
 
@@ -34,13 +34,18 @@ function Register(props) {
     const user = await checkUser.json();
     if(user.length >0){
       setMessage("User aleardy exists");
-      const userData = JSON.stringify(user[0]);
-      localStorage.setItem("user", userData);
-      }else{const response = await fetch('http://localhost:5000/users', options);
+;
+      }else
+      {const response = await fetch('http://localhost:5000/users', options);
       console.log(response);
       if(response.ok){
+        const userData = await response.json();
+        localStorage.setItem("user", JSON.stringify(userData))
        setMessage("Registered Successfully");
-       navigate("/task-list");
+       setTimeout(()=>{
+        navigate("/task-list");
+       }, 3000);
+      
       }else{
         setMessage("Something went wrong, please try again");
         }
@@ -49,7 +54,7 @@ function Register(props) {
 }
 
 
-  return (
+return (
     <form>
       <p>{message}</p>
       <div className="mb-3">
