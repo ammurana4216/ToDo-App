@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../images/logo.png';
+import AuthContext from '../context/AuthContext';
 
 
 function Navigation(props) {
     
     //useEffect(); new hook to get data and load form local storage
-const [user, setUser] = useState (null);
-    useEffect(()=>{
-
-      const localUser = localStorage.getItem("user");
-      const user = JSON.parse(localUser);
-      setUser(user);
-    },[])
-    
+const {user} = useContext(AuthContext);
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">

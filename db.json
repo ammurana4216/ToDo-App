@@ -59,6 +59,24 @@
       "email": "ravan@gmail.com",
       "password": "ravan",
       "id": 10
+    },
+    {
+      "name": "fallru",
+      "email": "fallru@gmail.com",
+      "password": "fallriu",
+      "id": 11
+    },
+    {
+      "name": "altra",
+      "email": "altra@gmail.com",
+      "password": "altra",
+      "id": 12
+    },
+    {
+      "name": "nikku",
+      "email": "nikku@gmail.com",
+      "password": "nikku",
+      "id": 13
     }
   ],
   "tasks": []
