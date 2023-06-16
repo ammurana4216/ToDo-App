@@ -1,82 +1,16 @@
 {
   "users": [
     {
-      "name": "Raveena Katal",
-      "email": "raveena.katal@gmai.com",
-      "password": "raveena",
+      "name": "Ambeshwar Rana",
+      "email": "ranaammu@gmail.com",
+      "password": "ranaji",
       "id": 1
     },
     {
-      "name": "simran",
-      "email": "simran@gmail.com",
-      "password": "admin123",
+      "name": "Raveena Katal",
+      "email": "R.katal@gmial.com",
+      "password": "katalR",
       "id": 2
-    },
-    {
-      "name": "ambeshwar",
-      "email": "rana4216@gmail.com",
-      "password": "admin321",
-      "id": 3
-    },
-    {
-      "name": "simi",
-      "email": "simi@gmail.com",
-      "password": "admin",
-      "id": 4
-    },
-    {
-      "name": "iphone",
-      "email": "iphone@gmail.com",
-      "password": "iphone",
-      "id": 5
-    },
-    {
-      "name": "ranaammu",
-      "email": "ranaammu@gmail.com",
-      "password": "admin@13",
-      "id": 6
-    },
-    {
-      "name": "dadadad",
-      "email": "dadadad@gmail.com",
-      "password": "admin",
-      "id": 7
-    },
-    {
-      "name": "ammurana321",
-      "email": "ammurana@gmial.com",
-      "password": "admin",
-      "id": 8
-    },
-    {
-      "name": "falana",
-      "email": "falana@gmail.com",
-      "password": "admin",
-      "id": 9
-    },
-    {
-      "name": "ravan",
-      "email": "ravan@gmail.com",
-      "password": "ravan",
-      "id": 10
-    },
-    {
-      "name": "fallru",
-      "email": "fallru@gmail.com",
-      "password": "fallriu",
-      "id": 11
-    },
-    {
-      "name": "altra",
-      "email": "altra@gmail.com",
-      "password": "altra",
-      "id": 12
-    },
-    {
-      "name": "nikku",
-      "email": "nikku@gmail.com",
-      "password": "nikku",
-      "id": 13
     }
   ],
   "tasks": []
