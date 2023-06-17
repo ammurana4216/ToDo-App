@@ -11,6 +11,18 @@
       "email": "R.katal@gmial.com",
       "password": "katalR",
       "id": 2
+    },
+    {
+      "name": "dddfd",
+      "email": "nikku@gmail.com",
+      "password": "12345678",
+      "id": 3
+    },
+    {
+      "name": "Ammu",
+      "email": "ranap@gmail.com",
+      "password": "admin",
+      "id": 4
     }
   ],
   "tasks": []

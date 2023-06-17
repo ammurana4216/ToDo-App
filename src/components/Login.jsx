@@ -5,7 +5,7 @@ import AuthContext from "../context/AuthContext";
 
 function Login(props) {
     const [formData, setFormData]= useState();
-    const [message , login] =useContext(AuthContext);
+    const {message , login} =useContext(AuthContext);
     const handleChange=(e)=>{
         let { name, value } = e.target;
         setFormData((prev)=>({
@@ -16,9 +16,11 @@ function Login(props) {
 
     const submitForm=async(e)=>{
         e.preventDefault();
-        Login(formData);
+        login(formData);
       }
     
+
+      // console.log('message', message)
   return (
     <form>
       <div className="mb-3">

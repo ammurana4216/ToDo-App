@@ -16,7 +16,7 @@ function Register(props) {
 
   
   const submitForm=async(e)=>{
-    e.preventDefault();
+   e.preventDefault()
     register(formData);
   }
        
