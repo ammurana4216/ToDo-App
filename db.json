@@ -1,28 +1,34 @@
 {
   "users": [
     {
-      "name": "Ambeshwar Rana",
-      "email": "ranaammu@gmail.com",
-      "password": "ranaji",
+      "name": "Raveena Katal",
+      "email": "rakatal@gmail.com",
+      "password": "admin",
       "id": 1
     },
     {
-      "name": "Raveena Katal",
-      "email": "R.katal@gmial.com",
-      "password": "katalR",
+      "name": "Rana Amebeshwar",
+      "email": "rana@gmail.com",
+      "password": "admin",
       "id": 2
     },
     {
-      "name": "dddfd",
-      "email": "nikku@gmail.com",
-      "password": "12345678",
+      "name": "rajat",
+      "email": "rajat@gmail.com",
+      "password": "admin",
       "id": 3
     },
     {
-      "name": "Ammu",
-      "email": "ranap@gmail.com",
+      "name": "rama",
+      "email": "rama@gmail.com",
       "password": "admin",
       "id": 4
+    },
+    {
+      "name": "Raveena Katal",
+      "email": "katal@gmail.com",
+      "password": "admin",
+      "id": 5
     }
   ],
   "tasks": []

@@ -1,18 +1,21 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//code to create context Api
 const AuthContext = createContext();
-
 export const AuthProvider = ({ children }) => {
+
+
+   //register user
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
-  const [formData, setFormData] = useState("");
+  
   const navigate = useNavigate();
+  
+ 
+ 
 
-
-  //register user
-
-  const register = async (formData) => {
+  const register = async(formData) => {
     const options = {
       method: "POST",
       headers: {
@@ -21,22 +24,29 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify(formData)
     }
 
+
+
+    
     const checkUser = await fetch(`http://localhost:5000/users?email=${formData.email}`, { method: "GET" })
     if (checkUser.ok) {
       const user = await checkUser.json();
+     
       if (user.length > 0) {
         setMessage("user already exist");
+      
       } else {
         const response = await fetch('http://localhost:5000/users', options);
+        
         if (response.ok) {
+          
           setMessage("Registered Successfully");
           const userData = await response.json();
           localStorage.setItem("user", JSON.stringify(userData));
           setUser(userData);
           setTimeout(() => {
-            setMessage('')
             navigate('/task-list');
           }, 2000);
+
         } else {
           setMessage("Something went wrong, please try again");
         }
@@ -48,21 +58,23 @@ export const AuthProvider = ({ children }) => {
   //login user.
 
   const login = async (formData) => {
+
     const response = await fetch(`http://localhost:5000/users?email=${formData.email}&password=${formData.password}`, { method: "GET" });
     const user = await response.json();
-    console.log('response', response)
-    console.log('user', user)
+    // console.log('response', response)
+    // console.log('user', user)
     if (response.ok) {
       if (user.length > 0) {
-        console.log('user', user)
+        //console.log('user', user)
         setMessage("Logged in Successfully");
         const userData = JSON.stringify(user[0]);
         localStorage.setItem("user", userData);
-        setUser(userData);
-        setTimeout(() => {
-          setMessage('')
-          navigate('/task-list');
+        setUser(user[0]);
+        setTimeout(() =>{
+          navigate('/profile');
         }, 2000);
+
+
       } else {
         setMessage("Email/Password not correct");
       }
@@ -70,19 +82,39 @@ export const AuthProvider = ({ children }) => {
       setMessage("Something went wrong, please try again.");
     }
   }
-  useEffect(() => {
+  useEffect(() =>{
 
     const localUser = localStorage.getItem("user");
+    console.log(localUser);
+   if(localUser){
+
     const user = JSON.parse(localUser);
-    setUser(user);
+    const response = fetch(`http://localhost:5000/users?email=${user.email}`);
+    if(response.ok){
+      const existingUser = response.json();
+
+
+     if(existingUser.length >0){
+      setUser(existingUser[0]);
+     }
+   
+    }else{
+      console.error("something went wrong");
+
+    }
+   }
+    
+ 
   }, [])
 
   return (
     <AuthContext.Provider value={{
       user,
+      setUser,
       message,
       register,
-      login
+      login,
+      setMessage
     }}>
       {children}
     </AuthContext.Provider>
