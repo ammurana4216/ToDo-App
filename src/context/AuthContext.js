@@ -54,6 +54,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setMessage("something went wrong, please try again");
     }
+  
   }
   //login user.
 

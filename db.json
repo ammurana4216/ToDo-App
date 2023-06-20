@@ -31,5 +31,18 @@
       "id": 5
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "title": "ravena",
+      "description": "vdhgwfdgh",
+      "duedate": "2023-06-15T14:28",
+      "id": 7
+    },
+    {
+      "title": "ambeshwar",
+      "description": "eaha",
+      "duedate": "2023-06-15T14:28",
+      "id": 8
+    }
+  ]
 }

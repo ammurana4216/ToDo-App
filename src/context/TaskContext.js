@@ -1,26 +1,50 @@
-import {  createContext } from "react";
+import {  createContext, useState } from "react";
 
 const TaskContext = createContext();
 
-const TaskProvider =({children})=>{
+
+export const TaskProvider =({children})=>{
+    const[task,setTask]=useState(null);
+const[message,setMessage]=useState("");
+   
+
+    const createTask = async(formData)=>{
+
+        const options ={
+           method: "POST",
+           headers:{
+            "Content-Type" : "application/json"
+           },
+           body: JSON.stringify(formData)
+        } 
     
-    const createTask = async(formData) => {
-        const options = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(formData)
-console.log("formData", formData);
-        }
+     const response = await fetch('http://localhost:5000/tasks', options);
+     console.log(response);
+
+     if(response.ok)
+     {
+        setMessage("Task is Created");
+
+        const taskData=await response.json();
+
+        localStorage.setItem("task" ,JSON.stringify(taskData));
+        setTask(taskData)
+
+     }
+     else{
+        setMessage("Something went wrong!try again");
+     }
+    }
 
     return(
         <TaskContext.Provider value={{
-
+        createTask,
+        message
         }}>
             {children}
         </TaskContext.Provider>
     )
-    }
+    
 }
 export default TaskContext;
+

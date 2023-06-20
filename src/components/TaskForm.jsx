@@ -1,28 +1,49 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import TaskContext from '../context/TaskContext';
+
+
 
 function TaskForm(props) {
+    const [formData, setFormData] = useState();
+    const {createTask,message}=useContext(TaskContext);
+
+
+const handleChange=(e)=>{
+    let {name, value} =e.target;
+    setFormData((prev)=>({
+      ...prev, 
+      [name] : value
+    }))
+}
+
+const submitForm =async(e)=>{
+    e.preventDefault()
+    createTask(formData);
+}
     return (
+
         <div className='p-3 w-75'>
             <h3 className='mb-3 text white'>Create Task</h3>
             <div className='card'>
                 <div className='card-body'>
             <form>
+                <p>{message}</p>
                <div className="mb-3">
-                <label className ="form-label">Title</label>
-                <input type ="text" name='title' className='form-control'/>
+                <label className ="form-label" htmlFor='title' >Title</label>
+                <input type ="text" id="title" name='title' className='form-control' onChange={handleChange}/>
 
                </div>
                <div className="mb-3">
-                <label className ="form-label">Discription</label>
-                <textarea name='discription' className='form-control' rows ="8"></textarea>
+                <label className ="form-label" htmlFor='description` '>Description</label>
+                <textarea name='description' className='form-control' rows ="8" id="description" onChange={handleChange}></textarea>
 
                </div>
                <div className="mb-3">
-                <label className ="form-label">Date & Time</label>
-                <input type ="datetime-local" name='duedate' className='form-control'/>
+                <label className ="form-label" htmlFor='date&time'>Date & Time</label>
+                <input type ="datetime-local" name='duedate' className='form-control' onChange={handleChange}/>
 
                </div>
-               <button className='btn btn-primary'>Create Task</button>
+               <button className='btn btn-primary' onClick={submitForm}>Create Task</button>
 
             </form>
             </div>
