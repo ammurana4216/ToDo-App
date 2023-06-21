@@ -34,7 +34,9 @@ export const AuthProvider = ({ children }) => {
       if (user.length > 0) {
         setMessage("user already exist");
       
-      } else {
+      } 
+      else {
+        try{
         const response = await fetch('http://localhost:5000/users', options);
         
         if (response.ok) {
@@ -51,6 +53,11 @@ export const AuthProvider = ({ children }) => {
           setMessage("Something went wrong, please try again");
         }
       }
+      catch(err){
+        console.log(err);
+      }
+    }
+    
     } else {
       setMessage("something went wrong, please try again");
     }
@@ -83,7 +90,7 @@ export const AuthProvider = ({ children }) => {
       setMessage("Something went wrong, please try again.");
     }
   }
-  
+
   useEffect(() =>{
 
     const localUser = localStorage.getItem("user");
