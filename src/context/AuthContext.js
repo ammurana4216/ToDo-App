@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
           localStorage.setItem("user", JSON.stringify(userData));
           setUser(userData);
           setTimeout(() => {
-            navigate('/task-list');
+            navigate('/login');
           }, 2000);
 
         } else {
@@ -83,6 +83,7 @@ export const AuthProvider = ({ children }) => {
       setMessage("Something went wrong, please try again.");
     }
   }
+  
   useEffect(() =>{
 
     const localUser = localStorage.getItem("user");
@@ -102,11 +103,10 @@ const getUser = async()=>{
    }
  
   }else{
-    console.log("something went wrong");
+    console.error("something went wrong");
 
   }
-  }
-  catch(err){
+  }  catch(err){
     console.log(err);
   }
 }

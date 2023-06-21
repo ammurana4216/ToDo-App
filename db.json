@@ -35,6 +35,18 @@
       "email": "ambeshwarrana@gmail.com",
       "password": "admin",
       "id": 6
+    },
+    {
+      "name": "langurni",
+      "email": "langur@gmail.com",
+      "password": "admin",
+      "id": 7
+    },
+    {
+      "name": "Raveena Katal",
+      "email": "katalrav@gmail.com",
+      "password": "admin",
+      "id": 8
     }
   ],
   "tasks": []
