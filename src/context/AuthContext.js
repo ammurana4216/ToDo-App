@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("user", userData);
         setUser(user[0]);
         setTimeout(() =>{
-          navigate('/profile');
+          navigate('/create-task');
         }, 2000);
 
 
@@ -87,22 +87,33 @@ export const AuthProvider = ({ children }) => {
 
     const localUser = localStorage.getItem("user");
     console.log(localUser);
+
+const getUser = async()=>{
+  const user = JSON.parse(localUser);
+  
+  try{
+    const response = await fetch(`http://localhost:5000/users?email=${user.email}`);
+  if(response.ok){
+    const existingUser = await response.json();
+
+
+   if(existingUser.length >0){
+    setUser(existingUser[0]);
+   }
+ 
+  }else{
+    console.log("something went wrong");
+
+  }
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+
    if(localUser){
 
-    const user = JSON.parse(localUser);
-    const response = fetch(`http://localhost:5000/users?email=${user.email}`);
-    if(response.ok){
-      const existingUser = response.json();
-
-
-     if(existingUser.length >0){
-      setUser(existingUser[0]);
-     }
-   
-    }else{
-      console.error("something went wrong");
-
-    }
+   getUser();
    }
     
  

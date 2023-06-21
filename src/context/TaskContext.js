@@ -1,25 +1,33 @@
-import {  createContext, useState } from "react";
+import {  createContext, useContext, useState } from "react";
+import AuthContext from "./AuthContext";
 
 const TaskContext = createContext();
 
 
 export const TaskProvider =({children})=>{
     const[task,setTask]=useState(null);
-const[message,setMessage]=useState("");
+const{setMessage, message } = useContext(AuthContext)
    
 
+    const createTask = async(formData)=>{
+
+        const options ={
+           method: "POST",
+           headers:{
+            "Content-Type" : "application/json"
+           },
+           body: JSON.stringify(formData)
         } 
     
      const response = await fetch('http://localhost:5000/tasks', options);
      console.log(response);
 
-     if(response.ok)
-     {
+     if(response.ok){
         setMessage("Task is Created");
 
         const taskData=await response.json();
 
-        localStorage.setItem("task" ,JSON.stringify(taskData));
+        //localStorage.setItem("task" ,JSON.stringify(taskData));
         setTask(taskData)
 
      }
@@ -31,7 +39,8 @@ const[message,setMessage]=useState("");
     return(
         <TaskContext.Provider value={{
         createTask,
-        message
+       message,
+        setMessage
         }}>
             {children}
         </TaskContext.Provider>
@@ -39,4 +48,3 @@ const[message,setMessage]=useState("");
     
 }
 export default TaskContext;
-

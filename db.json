@@ -29,20 +29,13 @@
       "email": "katal@gmail.com",
       "password": "admin",
       "id": 5
-    }
-  ],
-  "tasks": [
-    {
-      "title": "ravena",
-      "description": "vdhgwfdgh",
-      "duedate": "2023-06-15T14:28",
-      "id": 7
     },
     {
-      "title": "ambeshwar",
-      "description": "eaha",
-      "duedate": "2023-06-15T14:28",
-      "id": 8
+      "name": "Rana Ambeshwar",
+      "email": "ambeshwarrana@gmail.com",
+      "password": "admin",
+      "id": 6
     }
-  ]
+  ],
+  "tasks": []
 }
