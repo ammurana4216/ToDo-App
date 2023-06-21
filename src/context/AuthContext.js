@@ -72,6 +72,7 @@ export const AuthProvider = ({ children }) => {
     // console.log('response', response)
     // console.log('user', user)
     if (response.ok) {
+      try{
       if (user.length > 0) {
         //console.log('user', user)
         setMessage("Logged in Successfully");
@@ -86,10 +87,18 @@ export const AuthProvider = ({ children }) => {
       } else {
         setMessage("Email/Password not correct");
       }
+      }
+      catch(err){
+        console.log(err);
+      }  
     } else {
       setMessage("Something went wrong, please try again.");
+    
     }
+    
+    
   }
+
 
   useEffect(() =>{
 
