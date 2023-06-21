@@ -33,10 +33,13 @@ const{setMessage, message } = useContext(AuthContext)
      }
      else{setMessage("Something went wrong!try again");
      }
+
+     
+    } catch(err){
+        console.log(err);
     }
 
-     } catch(err){
-    console.log(err);
+
 }
     
 return(
