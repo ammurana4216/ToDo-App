@@ -7,47 +7,32 @@
       "id": 1
     },
     {
-      "name": "Rana Amebeshwar",
-      "email": "rana@gmail.com",
+      "name": "Ambeshwar Rana",
+      "email": "ambeshwar@gamil.com",
       "password": "admin",
       "id": 2
     },
     {
-      "name": "rajat",
-      "email": "rajat@gmail.com",
+      "name": "Ambeshwar Rana",
+      "email": "ambeshwar@gamil.com",
       "password": "admin",
       "id": 3
-    },
-    {
-      "name": "rama",
-      "email": "rama@gmail.com",
-      "password": "admin",
-      "id": 4
-    },
-    {
-      "name": "Raveena Katal",
-      "email": "katal@gmail.com",
-      "password": "admin",
-      "id": 5
-    },
-    {
-      "name": "Rana Ambeshwar",
-      "email": "ambeshwarrana@gmail.com",
-      "password": "admin",
-      "id": 6
-    },
-    {
-      "name": "langurni",
-      "email": "langur@gmail.com",
-      "password": "admin",
-      "id": 7
-    },
-    {
-      "name": "Raveena Katal",
-      "email": "katalrav@gmail.com",
-      "password": "admin",
-      "id": 8
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "title": "ammu rana",
+      "modifiedOn": "Fri Jun 23 2023 10:25:39 GMT+0530 (India Standard Time)",
+      "description": "wwelcome to my page",
+      "duedate": "2023-06-24T12:28",
+      "id": 1
+    },
+    {
+      "title": "ambu",
+      "modifiedOn": "Fri Jun 23 2023 10:28:16 GMT+0530 (India Standard Time)",
+      "description": "ambi rana nayahn",
+      "duedate": "2023-06-24T10:28",
+      "id": 2
+    }
+  ]
 }

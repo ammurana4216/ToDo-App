@@ -1,56 +1,72 @@
-import {  createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 
 const TaskContext = createContext();
 
+export const TaskProvider=({children})=>{
 
-export const TaskProvider =({children})=>{
-    const[task,setTask]=useState(null);
-const{setMessage, message } = useContext(AuthContext)
-   
+    const {setMessage, user} = useContext(AuthContext);
+    const [latestTask, setLatestTask]= useState(null);
+    const [recentTasks, setRecentTasks]=useState(null);
+    const [taskList, setTaskList]=useState(null);
+    //create task function
+    const createTask=async(formData)=>{
+        const config = {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        const response = await fetch("http://localhost:5000/tasks", config);
+        if(response.ok){
+            setMessage("Task created successfully");
+            const taskData = await response.json();
+            setLatestTask(taskData);
+        }else{
+            setMessage("Something went wrong, please try again");
+        }
+    }
+ 
+    //get tasks
+    const getAllTasks=async()=>{
+        try{
+        const response = await fetch(`http://localhost:5000/tasks?userId=${user.Id}`, {method: "GET"});
+        if(response.ok){
+            const tasks = await response.json();
+            setTaskList(tasks);
 
-    const createTask = async(formData)=>{
+            const latest = tasks[tasks.length - 1];
+            setLatestTask(latest);
 
-        const options ={
-           method: "POST",
-           headers:{
-            "Content-Type" : "application/json"
-           },
-           body: JSON.stringify(formData)
-        } 
-    try{
-     const response = await fetch('http://localhost:5000/tasks', options);
-     console.log(response);
+            const recentTask = tasks.slice(-3);
+            setRecentTasks(recentTask);
 
-     if(response.ok){
-        setMessage("Task is Created");
 
-        const taskData = await response.json();
-
-        //localStorage.setItem("task" ,JSON.stringify(taskData));
-        setTask(taskData)
-
-     }
-     else{setMessage("Something went wrong!try again");
-     }
-
-     
-    } catch(err){
-        console.log(err);
+        }else{
+            alert("something went wrong");
+        }
+        }catch(err){
+            console.log(err);
+        }
     }
 
+    useEffect(()=>{
+        if(user !== null){
+            getAllTasks();
+        }        
+    }, [user])
 
-}
-    
-return(
+    return(
         <TaskContext.Provider value={{
-        createTask,
-       message,
-        setMessage
+            createTask,
+            latestTask,
+            recentTasks,
+            taskList
         }}>
             {children}
         </TaskContext.Provider>
     )
-    
 }
+
 export default TaskContext;
