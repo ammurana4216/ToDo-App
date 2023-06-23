@@ -2,37 +2,46 @@
   "users": [
     {
       "name": "Raveena Katal",
-      "email": "rakatal@gmail.com",
-      "password": "admin",
+      "email": "ruby@gmail.com",
+      "password": "ruby",
       "id": 1
-    },
-    {
-      "name": "Ambeshwar Rana",
-      "email": "ambeshwar@gamil.com",
-      "password": "admin",
-      "id": 2
-    },
-    {
-      "name": "Ambeshwar Rana",
-      "email": "ambeshwar@gamil.com",
-      "password": "admin",
-      "id": 3
     }
   ],
   "tasks": [
     {
-      "title": "ammu rana",
-      "modifiedOn": "Fri Jun 23 2023 10:25:39 GMT+0530 (India Standard Time)",
-      "description": "wwelcome to my page",
-      "duedate": "2023-06-24T12:28",
+      "title": "node js",
+      "modifiedOn": "Fri Jun 23 2023 11:48:46 GMT+0530 (India Standard Time)",
+      "description": "hello world",
+      "duedate": "2023-06-15T11:48",
       "id": 1
     },
     {
-      "title": "ambu",
-      "modifiedOn": "Fri Jun 23 2023 10:28:16 GMT+0530 (India Standard Time)",
-      "description": "ambi rana nayahn",
-      "duedate": "2023-06-24T10:28",
+      "title": "flana",
+      "modifiedOn": "Fri Jun 23 2023 12:03:39 GMT+0530 (India Standard Time)",
+      "description": "flana",
+      "duedate": "2023-06-07T14:03",
       "id": 2
+    },
+    {
+      "title": "flana",
+      "modifiedOn": "Fri Jun 23 2023 12:03:39 GMT+0530 (India Standard Time)",
+      "description": "flana",
+      "duedate": "2023-06-07T14:03",
+      "id": 3
+    },
+    {
+      "title": "A note to you",
+      "modifiedOn": "Fri Jun 23 2023 12:06:27 GMT+0530 (India Standard Time)",
+      "description": "Focus on React js only",
+      "duedate": "2023-06-23T14:03",
+      "id": 4
+    },
+    {
+      "title": "A note to you",
+      "modifiedOn": "Fri Jun 23 2023 12:06:27 GMT+0530 (India Standard Time)",
+      "description": "Focus on React js only",
+      "duedate": "2023-06-23T14:03",
+      "id": 5
     }
   ]
 }

@@ -22,7 +22,7 @@ export const TaskProvider=({children})=>{
         if(response.ok){
             setMessage("Task created successfully");
             const taskData = await response.json();
-            setLatestTask(taskData);
+            szqetLatestTask(taskData);
         }else{
             setMessage("Something went wrong, please try again");
         }
@@ -30,7 +30,7 @@ export const TaskProvider=({children})=>{
  
     //get tasks
     const getAllTasks=async()=>{
-        try{
+       
         const response = await fetch(`http://localhost:5000/tasks?userId=${user.Id}`, {method: "GET"});
         if(response.ok){
             const tasks = await response.json();
@@ -46,9 +46,7 @@ export const TaskProvider=({children})=>{
         }else{
             alert("something went wrong");
         }
-        }catch(err){
-            console.log(err);
-        }
+       
     }
 
     useEffect(()=>{

@@ -23,10 +23,12 @@ function CreateTask(props) {
             <div className="card-body p-4">
 {latestTask?
               <>
-              <h4 className='border-bottom pb-2'>{latestTask.tilte}</h4>
+              <h4 className='border-bottom pb-2'>{latestTask.title}</h4>
+              <p>{latestTask.description}</p>
               <div className='d-flex'>
                 <p>created On :{latestTask.modifiedOn}</p>
               <p>duedate: {latestTask.duedate }</p>
+              
               </div>
             </>:""
              } 

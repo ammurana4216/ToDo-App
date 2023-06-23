@@ -9,20 +9,20 @@ function Login(props) {
     
     useEffect(()=>{
      setMessage("");
-    })
+    },[]);
     
     const handleChange=(e)=>{
         let { name, value } = e.target;
         setFormData((prev)=>({
             ...prev,
             [name]: value
-        }))
+        }));
     }
 
-    const submitForm=async(e)=>{
+    const submitForm = async (e) => {
         e.preventDefault();
         login(formData);
-      }
+      };
     
 
       // console.log('message', message)
@@ -45,7 +45,7 @@ function Login(props) {
       <p>{message}</p>
       <button className="btn btn-primary" onClick={submitForm}>Login</button>
 
-      <p>Having Problem in registering? <Link to='/about'>click here</Link> for help </p>
+      <p>Having Problem in registering? <Link to='/about'>click here</Link> for help{""} </p>
     </form>
   );
 }

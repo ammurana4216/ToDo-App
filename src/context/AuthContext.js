@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+debugger
 const AuthContext = createContext();
 
 export const AuthProvider=({children})=>{
@@ -16,7 +16,7 @@ export const AuthProvider=({children})=>{
           },
           body: JSON.stringify(formData)
         }
-    
+    try{
         const checkUser = await fetch(`http://localhost:5000/users?email=${formData.email}`, {method: "GET"})
         if(checkUser.ok){
           const user = await checkUser.json();
@@ -30,43 +30,61 @@ export const AuthProvider=({children})=>{
               localStorage.setItem("user", JSON.stringify(userData));
               setUser(userData);
               setTimeout(()=>{
-                navigate('/task-list');
+                navigate('/create-task');
               }, 1000);
             }else{
               setMessage("Something went wrong, please try again");
             }
-          }
+         
+        }
         }else{
           setMessage("something went wrong, please try again");
+        }
+      }
+        catch(err){
+          console.log(err);
         }  
       }
 
     //login user    
     const login=async(formData)=>{
+      try{
       const response = await fetch(`http://localhost:5000/users?email=${formData.email}&password=${formData.password}`, {method: "GET"});
       const user = await response.json();
       if(response.ok){
         if(user.length > 0){
           setMessage("Logged in Successfully");
+
           const userData = JSON.stringify(user[0]);
+
           localStorage.setItem("user", userData);
           setUser(user[0]);
           setTimeout(()=>{
-            navigate('/task-list');
+            navigate('/create-task');
+
           }, 1000);
+
         }else{
           setMessage("Email/Password not correct");
         }
+
       }else{
         setMessage("Something went wrong, please try again.")
+      }}
+      catch(err){
+        console.log(err);
       }
     }
 
   
          useEffect(()=>{
-        const localUser = localStorage.getItem("user");
+        const localUser = localStorage.getItem("user");  //which user is logged in
+        console.log (localUser);
+        //function to get information of user
         const getUser = async()=>{
+
           const user = JSON.parse(localUser);
+          //if the path is not found to handle such situation try and  catch method is used
           try{
             const response = await fetch(`http://localhost:5000/users?email=${user.email}`);
             if(response.ok){
@@ -81,6 +99,8 @@ export const AuthProvider=({children})=>{
             console.log(err);
           }          
         }
+        //in case user is found
+
         if(localUser ){          
             getUser();
         }        
