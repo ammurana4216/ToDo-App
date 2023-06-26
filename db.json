@@ -1,47 +1,177 @@
 {
   "users": [
     {
+      "name": "Ambeshwar Rana",
+      "email": "ammurana@gmail.com",
+      "password": "admibn",
+      "id": 2
+    },
+    {
+      "name": "r katal",
+      "email": "katalr@gmail.com",
+      "password": "admin",
+      "id": 4
+    },
+    {
       "name": "Raveena Katal",
-      "email": "ruby@gmail.com",
-      "password": "ruby",
-      "id": 1
+      "email": "raveena@gmail.com",
+      "password": "raveena",
+      "id": 6
+    },
+    {
+      "email": "asdad",
+      "password": "adad",
+      "id": 7
+    },
+    {
+      "name": "Ammmu Rana",
+      "email": "drona@gmail.com",
+      "password": "admin",
+      "id": 8
+    },
+    {
+      "name": "anan",
+      "email": "ans",
+      "password": "adassda",
+      "id": 9
+    },
+    {
+      "name": "amama",
+      "id": 10
+    },
+    {
+      "name": "sd",
+      "id": 11
     }
   ],
   "tasks": [
     {
-      "title": "node js",
-      "modifiedOn": "Fri Jun 23 2023 11:48:46 GMT+0530 (India Standard Time)",
-      "description": "hello world",
-      "duedate": "2023-06-15T11:48",
+      "title": "admin",
+      "userId": 1,
+      "modifiedOn": "Sat Jun 24 2023 13:50:36 GMT+0530 (India Standard Time)",
+      "description": "hi i am the admin of this page\n",
+      "duedate": "2023-06-24T16:53",
       "id": 1
     },
     {
-      "title": "flana",
-      "modifiedOn": "Fri Jun 23 2023 12:03:39 GMT+0530 (India Standard Time)",
-      "description": "flana",
-      "duedate": "2023-06-07T14:03",
+      "title": "hei",
+      "userId": 1,
+      "modifiedOn": "Sat Jun 24 2023 13:54:53 GMT+0530 (India Standard Time)",
+      "description": "sf",
+      "duedate": "2023-06-24T17:58",
       "id": 2
     },
     {
-      "title": "flana",
-      "modifiedOn": "Fri Jun 23 2023 12:03:39 GMT+0530 (India Standard Time)",
-      "description": "flana",
-      "duedate": "2023-06-07T14:03",
+      "title": "hii",
+      "userId": 1,
+      "modifiedOn": "Sat Jun 24 2023 13:59:36 GMT+0530 (India Standard Time)",
+      "description": "welcome",
+      "duedate": "2023-06-25T15:59",
       "id": 3
     },
     {
-      "title": "A note to you",
-      "modifiedOn": "Fri Jun 23 2023 12:06:27 GMT+0530 (India Standard Time)",
-      "description": "Focus on React js only",
-      "duedate": "2023-06-23T14:03",
+      "title": "hi raveena",
+      "userId": 1,
+      "modifiedOn": "Sat Jun 24 2023 14:33:40 GMT+0530 (India Standard Time)",
+      "description": "welcome to my page",
+      "duedate": "2023-06-25T03:34",
       "id": 4
     },
     {
-      "title": "A note to you",
-      "modifiedOn": "Fri Jun 23 2023 12:06:27 GMT+0530 (India Standard Time)",
-      "description": "Focus on React js only",
-      "duedate": "2023-06-23T14:03",
+      "title": "hii",
+      "userId": 1,
+      "modifiedOn": "Mon Jun 26 2023 09:34:31 GMT+0530 (India Standard Time)",
+      "description": "welcome",
+      "duedate": "2023-06-27T11:36",
       "id": 5
+    },
+    {
+      "title": "hii",
+      "description": "hiiih",
+      "duedate": "2023-06-26T00:16",
+      "userId": 1,
+      "modifiedOn": "Mon Jun 26 2023 10:16:25 GMT+0530 (India Standard Time)",
+      "id": 6
+    },
+    {
+      "title": "hii",
+      "description": "hihihihihihihi",
+      "duedate": "2023-06-27T00:19",
+      "userId": 1,
+      "modifiedOn": "Mon Jun 26 2023 10:17:40 GMT+0530 (India Standard Time)",
+      "id": 7
+    },
+    {
+      "title": "sfsdss",
+      "description": "ssdsd",
+      "duedate": "2023-06-27T02:22",
+      "userId": 1,
+      "modifiedOn": "Mon Jun 26 2023 10:18:27 GMT+0530 (India Standard Time)",
+      "id": 8
+    },
+    {
+      "title": "kharcha pai=ni",
+      "description": "ye rahu mst chai leke aa re",
+      "duedate": "2023-06-28T02:28",
+      "userId": 1,
+      "modifiedOn": "Mon Jun 26 2023 10:24:06 GMT+0530 (India Standard Time)",
+      "id": 9
+    },
+    {
+      "title": "Ambeshwar Rana",
+      "description": "I'm always waiting for you ....!!!!",
+      "duedate": "2023-06-27T14:29",
+      "userId": 8,
+      "modifiedOn": "Mon Jun 26 2023 13:28:52 GMT+0530 (India Standard Time)",
+      "id": 10
+    },
+    {
+      "title": "HCL",
+      "description": "You should have you join the interview for tomorrow. ",
+      "duedate": "2023-06-27T14:30",
+      "userId": 8,
+      "modifiedOn": "Mon Jun 26 2023 13:29:52 GMT+0530 (India Standard Time)",
+      "id": 11
+    },
+    {
+      "title": "Jai Ho Mata Di ",
+      "description": "jai mata di bolda ja  podi podi charda ja",
+      "duedate": "2023-06-27T14:35",
+      "userId": 8,
+      "modifiedOn": "Mon Jun 26 2023 13:34:08 GMT+0530 (India Standard Time)",
+      "id": 12
+    },
+    {
+      "title": "Ambeshwar Rana ",
+      "description": "he is a good boy and i know he is not going to leave you",
+      "duedate": "2023-12-29T13:59",
+      "userId": 8,
+      "modifiedOn": "Mon Jun 26 2023 13:50:12 GMT+0530 (India Standard Time)",
+      "id": 13
+    },
+    {
+      "title": "Ambeshwar Rana",
+      "description": "welcome to my page I'm the in charge of this website ",
+      "duedate": "2023-06-27T23:29",
+      "userId": 2,
+      "modifiedOn": "Mon Jun 26 2023 19:25:33 GMT+0530 (India Standard Time)",
+      "id": 14
+    },
+    {
+      "title": "Raveena Katal",
+      "description": "hi there you are very good in react",
+      "duedate": "2023-06-27T20:47",
+      "userId": 2,
+      "modifiedOn": "Mon Jun 26 2023 19:46:10 GMT+0530 (India Standard Time)",
+      "id": 15
+    },
+    {
+      "title": "Vinny ",
+      "description": "he is not a good guy",
+      "duedate": "2023-06-27T21:48",
+      "userId": 2,
+      "modifiedOn": "Mon Jun 26 2023 19:46:39 GMT+0530 (India Standard Time)",
+      "id": 16
     }
   ]
 }
