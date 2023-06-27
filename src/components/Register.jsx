@@ -81,21 +81,21 @@ function Register(props) {
         </label>
         <input type="text" name="name" id="name" className="form-control" onChange={handleChange} value={formErrors.name} />
       </div>
-      <p style color ="red">{formErrors.name}</p>
+      <p >{formErrors.name}</p>
       <div className="mb-3">
         <label className="form-label" htmlFor="email">
           Email
         </label>
         <input type="email" name="email" id="email" className="form-control" onChange={handleChange} value={formErrors.email} />
       </div>
-      <p style color ="red">{formErrors.email}</p>
+      <p>{formErrors.email}</p>
       <div className="mb-3">
         <label className="form-label" htmlFor="password">
           Password
         </label>
         <input type="password" name="password" id="password" className="form-control" onChange={handleChange} value={formErrors.password} />
       </div>
-      <p style color ="red">{formErrors.password}</p>
+      <p >{formErrors.password}</p>
       <button className="btn btn-primary" onClick={submitForm}>Register</button>
       <br />
       <br />
