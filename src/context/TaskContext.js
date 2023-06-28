@@ -53,6 +53,31 @@ export const TaskProvider = ({ children }) => {
         }
     }
 
+
+
+    const updateTask = async (formData) => {
+        const config = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        const response = await fetch(`http://localhost:5000/tasks/${formData.id}`, config);
+        if (response.ok) {
+            setMessage("Task created successfully");
+            getAllTasks();
+            setTimeout(() => {
+                setMessage("");
+            }, 1000)
+        } else {
+            setMessage("Something went wrong, please try again");
+        }
+    }
+    //update task
+
+
+
     useEffect(() => {
         if (user !== null) {
             getAllTasks();
@@ -65,11 +90,15 @@ export const TaskProvider = ({ children }) => {
             latestTask,
             recentTasks,
             taskList,
+            updateTask
 
         }}>
             {children}
         </TaskContext.Provider>
     )
+
+
+
 }
 
 

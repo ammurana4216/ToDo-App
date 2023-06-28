@@ -11,8 +11,8 @@ const init = {
 
 function TaskForm(props) {
   const [formData, setFormData] = useState(init);
-  const { isUpdate, data } = props;
-  const { createTask } = useContext(TaskContext);
+  const { isUpdate, data  , setIsUpdate} = props;
+  const { createTask, updateTask } = useContext(TaskContext);
   const { message, setMessage, user } = useContext(AuthContext);
 
 
@@ -35,38 +35,26 @@ function TaskForm(props) {
 
     }))
   }
-
-
-//   const updateTask = () => {
-//     const config = {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(isUpdate)
-//     }
-
-// const update = await fetch ("http://localhost:5000/tasks/${id}", config) ;
-// if (update.ok){
-
-// }
-//   }
-
-
-
-
-
-
-
-
-
-
+ 
 
   const submitForm = (e) => {
     e.preventDefault();
     createTask(formData);
     setFormData(init);
   }
+
+  const submitUpdate = (e) => {
+    e.preventDefault();
+    updateTask(formData);
+  }
+
+  const onCancel = (e) => {
+    e.preventDefault();
+    setIsUpdate(false);
+    setFormData(init);
+  }
+
+
   return (
     <div className="p-3 w-75">
       <h3 className="mb-3 text-white">{isUpdate ? "Update Task" : "Create Task"}</h3>
@@ -101,9 +89,9 @@ function TaskForm(props) {
             {
               isUpdate ?
                 <>
-                  <button className="btn btn-primary  " >Update</button>
+                  <button className="btn btn-primary" onClick={submitUpdate} >Update</button>
 
-                  <button className="btn btn-danger ms-3 " > Cancel</button>
+                  <button className="btn btn-danger ms-3 " onClick={onCancel}> Cancel</button>
                 </> :
                 <button className="btn btn-primary" onClick={submitForm}>Create Task</button>
 
