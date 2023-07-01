@@ -25,6 +25,7 @@ function PopUp(props) {
                   <div className='d-flex'> :
                     <p>Modified On: {data.modifiedOn}</p>
                     <p className="ms-auto">Due Date :{dateFormat(data.duedate)}</p>
+                    </div>
                   </div> : type === "edit" ?
                   <div>
                     <TaskForm isUpdate={true} data={data} />
@@ -33,8 +34,8 @@ function PopUp(props) {
                     Delete
                   </div>
              }
-            </div>
-         </div>
+                </div>
+         
         </div>
       </div>
     </div>
