@@ -63,3 +63,7 @@ body{
     width: 100%;
     max-width: 600px;
 }
+
+.modal-dialog{
+    max-width: 600px !important;
+}

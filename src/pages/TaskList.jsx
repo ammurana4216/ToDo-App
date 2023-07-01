@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useReducer } from 'react';
 import TaskContext from '../context/TaskContext';
 import { Link } from 'react-router-dom';
 import { dateFormat } from '../helper';
@@ -6,9 +6,24 @@ import PopUp from '../components/PopUp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons';
 
-function TaskList(props) {
-    const { taskList } = useContext(TaskContext)
 
+function reducer(state, action) {
+    switch (action.type) {
+        case "view": return { type: "view", data: action.payload };
+        case "edit": return { type: "edit", data: action.payload };
+        case "delete": return { type: "delete", data: action.payload };
+        default: return state;
+    }
+}
+
+
+function TaskList(props) {
+    const { taskList } = useContext(TaskContext);
+    const [state, dispatch] = useReducer(reducer, 0);
+
+    // const view =()=>{
+    //     dispatch({type: view, payload :item})
+    // }
 
     return (
         <div className='container bg-primary p-5'>
@@ -35,17 +50,18 @@ function TaskList(props) {
 
                                 return (
                                     <tr key={item.id} >
+                                        <td>{item.id}</td>
                                         <td >{item.title}</td>
                                         <td >{item.description}</td>
                                         <td >{dateFormat(item.duedate)}</td>
                                         <td>
-                                            <span className='px-3' data-bs-toggle="modal" data-bs-target="#task-modal">
+                                            <span className='px-3' data-bs-toggle="modal" data-bs-target="#task-modal" onClick={()=> { dispatch({ type: "view",payload:item }) }}>
                                                 <FontAwesomeIcon icon={faEye} />
                                             </span>
-                                            <span className='px-3' data-bs-toggle="modal" data-bs-target="#task-modal">
+                                            <span className='px-3' data-bs-toggle="modal" data-bs-target="#task-modal" onClick={()=> { dispatch({ type: "edit",payload:item }) }}>
                                                 <FontAwesomeIcon icon={faPenToSquare} />
                                             </span>
-                                            <span className='px-3' data-bs-toggle="modal" data-bs-target="#task-modal">
+                                            <span className='px-3' data-bs-toggle="modal" data-bs-target="#task-modal" onClick={()=> { dispatch({ type: "delete",payload:item }) }}>
                                                 <FontAwesomeIcon icon={faTrashCan} />
                                             </span>
                                         </td>
@@ -57,7 +73,7 @@ function TaskList(props) {
 
                 </tbody>
             </table>
-            <PopUp />
+            <PopUp option={state} />
         </div >
     );
 }
