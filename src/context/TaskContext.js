@@ -74,6 +74,26 @@ export const TaskProvider = ({ children }) => {
             setMessage("Something went wrong, please try again");
         }
     }
+
+
+const deleteTask =async(id)=>{
+    try{
+const response =fetch (`http://localhost:5000/tasks/${id}`,{method:"DELETE"});
+if(response.ok){
+    setMessage("Task deleted successfully");
+    setTimeout(() => {
+        setMessage("");
+    }, 1000)
+}   else{
+    setMessage("Something went wrong.")
+    
+} 
+}catch(err){
+console.log(err);
+    }
+}
+
+
     //update task
 
 
@@ -90,7 +110,8 @@ export const TaskProvider = ({ children }) => {
             latestTask,
             recentTasks,
             taskList,
-            updateTask
+            updateTask,
+            deleteTask
 
         }}>
             {children}

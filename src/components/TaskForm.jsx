@@ -11,7 +11,7 @@ const init = {
 
 function TaskForm(props) {
   const [formData, setFormData] = useState(init);
-  const { isUpdate, data  , setIsUpdate} = props;
+  const { isUpdate, data, setIsUpdate, btnRef, isPopup } = props;
   const { createTask, updateTask } = useContext(TaskContext);
   const { message, setMessage, user } = useContext(AuthContext);
 
@@ -22,7 +22,7 @@ function TaskForm(props) {
     if (isUpdate) {
       setFormData(data);
     }
-  }, [isUpdate])
+  }, [isUpdate, data])
 
 
   const handleChange = (e) => {
@@ -35,7 +35,7 @@ function TaskForm(props) {
 
     }))
   }
- 
+
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -50,8 +50,20 @@ function TaskForm(props) {
 
   const onCancel = (e) => {
     e.preventDefault();
-    setIsUpdate(false);
     setFormData(init);
+    if (!isPopup) {
+      setIsUpdate(false);
+      setTimeout(() => {
+        setMessage("");
+      }, 1000)
+    } else {
+      btnRef.current.click();
+    }
+
+  }
+  const deleteTask = (e) => {
+      deleteTask(formData)
+
   }
 
 
