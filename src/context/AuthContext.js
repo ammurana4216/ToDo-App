@@ -50,6 +50,7 @@ export const AuthProvider = ({ children }) => {
 
   //login user    
   const login = async (formData) => {
+    debugger
     const response = await fetch(`http://localhost:5000/users?email=${formData.email}&password=${formData.password}`, { method: "GET" });
     const user = await response.json();
     if (response.ok) {

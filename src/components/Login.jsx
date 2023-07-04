@@ -43,9 +43,10 @@ function Login(props) {
         <input type="password" name="password" className="form-control" onChange={handleChange}/>
       </div>
       <p>{message}</p>
-      <button className="btn btn-primary" onClick={submitForm}>Login</button>
+     
+      <button className="btn btn-primary" onClick={submitForm}>   Login</button>
 
-      <p>Having Problem in registering? <Link to='/about'>click here</Link> for help{""} </p>
+      <p>Having Problem in registering? <Link to='/about'>click here</Link> for help </p>
     </form>
   );
 }

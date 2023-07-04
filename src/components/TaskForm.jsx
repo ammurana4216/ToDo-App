@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import TaskContext from "../context/TaskContext";
 import AuthContext from "../context/AuthContext";
+import TaskList from "../pages/TaskList";
 
 const init = {
   title: "",
@@ -61,10 +62,7 @@ function TaskForm(props) {
     }
 
   }
-  const deleteTask = (e) => {
-      deleteTask(formData)
-
-  }
+ 
 
 
   return (

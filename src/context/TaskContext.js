@@ -76,22 +76,23 @@ export const TaskProvider = ({ children }) => {
     }
 
 
-const deleteTask =async(id)=>{
-    try{
-const response =fetch (`http://localhost:5000/tasks/${id}`,{method:"DELETE"});
-if(response.ok){
-    setMessage("Task deleted successfully");
-    setTimeout(() => {
-        setMessage("");
-    }, 1000)
-}   else{
-    setMessage("Something went wrong.")
-    
-} 
-}catch(err){
-console.log(err);
+    const deleteTask = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" });
+            if (response.ok) {
+                setMessage("Task deleted successfully");
+                getAllTasks();  
+                setTimeout(() => {
+                    setMessage("");
+                }, 1000);
+            } else {
+                setMessage("Something went wrong.")
+
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
-}
 
 
     //update task
